@@ -13,4 +13,11 @@ defmodule Adventofcode2018Test do
     assert Day1.first_duplicate([+7, +7, -2, -7, -4]) == 14
   end
 
+  test "calculates day 2 checksum" do
+    assert Day2.checksum(["abcdef", "bababc", "abbcde", "abcccd", "aabcdd", "abcdee", "ababab"]) == 12
+  end
+
+  test "calculates day 2 common letters" do
+    assert Day2.common(["abcde", "fghij", "klmno", "pqrst", "fguij", "axcye", "wvxyz"]) == "fgij"
+  end
 end
