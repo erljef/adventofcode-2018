@@ -20,4 +20,12 @@ defmodule Adventofcode2018Test do
   test "calculates day 2 common letters" do
     assert Day2.common(["abcde", "fghij", "klmno", "pqrst", "fguij", "axcye", "wvxyz"]) == "fgij"
   end
+
+  test "calculate day 3 overlapping area" do
+    assert ["#1 @ 1,3: 4x4", "#2 @ 3,1: 4x4", "#3 @ 5,5: 2x2"] |> Day3.claims |> Day3.overlap == 4
+  end
+
+  test "calculate day 3 area ids without any overlap" do
+    assert ["#1 @ 1,3: 4x4", "#2 @ 3,1: 4x4", "#3 @ 5,5: 2x2"] |> Day3.claims |> Day3.no_overlap == 3
+  end
 end
