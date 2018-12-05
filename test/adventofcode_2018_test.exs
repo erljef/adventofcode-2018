@@ -82,4 +82,12 @@ defmodule Adventofcode2018Test do
            |> Day4.most_asleep_on_minute
            |> (fn {id, minute} -> id * minute end).() === 4455
   end
+
+  test "day 5 react the polymer" do
+    assert "dabAcCaCBAcCcaDA" |> String.graphemes |> Day5.react |> Enum.join == "dabCBAcaDA"
+  end
+
+  test "day 5 find the shortest polymer by removing one unit" do
+    assert "dabAcCaCBAcCcaDA" |> String.graphemes |> Day5.shortest_polymer |> Enum.join == "daDA"
+  end
 end
