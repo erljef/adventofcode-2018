@@ -90,4 +90,12 @@ defmodule Adventofcode2018Test do
   test "day 5 find the shortest polymer by removing one unit" do
     assert "dabAcCaCBAcCcaDA" |> String.graphemes |> Day5.shortest_polymer |> Enum.join == "daDA"
   end
+
+  test "day 6 find the largest area" do
+    assert [{1, 1}, {1, 6}, {8, 3}, {3, 4}, {5, 5}, {8, 9}] |> Day6.largest_area === 17
+  end
+
+  test "day 6 find the area of points within a given distance" do
+    assert [{1, 1}, {1, 6}, {8, 3}, {3, 4}, {5, 5}, {8, 9}] |> Day6.largest_close(32) === 16
+  end
 end
