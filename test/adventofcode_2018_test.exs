@@ -98,4 +98,32 @@ defmodule Adventofcode2018Test do
   test "day 6 find the area of points within a given distance" do
     assert [{1, 1}, {1, 6}, {8, 3}, {3, 4}, {5, 5}, {8, 9}] |> Day6.largest_close(32) === 16
   end
+
+  test "day 7 determine the order of steps" do
+    assert """
+           Step C must be finished before step A can begin.
+           Step C must be finished before step F can begin.
+           Step A must be finished before step B can begin.
+           Step A must be finished before step D can begin.
+           Step B must be finished before step E can begin.
+           Step D must be finished before step E can begin.
+           Step F must be finished before step E can begin.
+           """
+    |> String.split("\n") |> Enum.filter(&(String.length(&1) > 0))
+    |> Enum.map(&Day7.parse_instruction/1) |> Day7.order === "CABDFE"
+  end
+
+  test "day 7 calculate the time it would take to complete the steps" do
+    assert """
+           Step C must be finished before step A can begin.
+           Step C must be finished before step F can begin.
+           Step A must be finished before step B can begin.
+           Step A must be finished before step D can begin.
+           Step B must be finished before step E can begin.
+           Step D must be finished before step E can begin.
+           Step F must be finished before step E can begin.
+           """
+    |> String.split("\n") |> Enum.filter(&(String.length(&1) > 0))
+    |> Enum.map(&Day7.parse_instruction/1) |> Day7.time(2) == 15
+  end
 end
